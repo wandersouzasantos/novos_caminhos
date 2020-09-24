@@ -41,11 +41,14 @@ if (!empty($time)) {
 
 PHPClassSession('SWITCH', __LINE__);
 
-$payment = "completed";
+$payment = "credit_card";
 
 switch ($payment) {
     case "billet_printed":
         var_dump("Boleto Impresso");
+        break;
+    case "credit_card":
+        var_dump("Pagamento com cartão de crédito");
         break;
     case "canceled":
         var_dump("Pagamento cancelado");

@@ -12,5 +12,25 @@
 
 function allLongestStrings($inputArray)
 {
-    // CÓDIGO
+    $tamMax = 0;
+
+    foreach ($inputArray as $string) {
+
+        if (strlen($string) > $tamMax) {
+            $tamMax = strlen($string);
+        }
+    }
+
+    $outputArray = [];
+
+    foreach ($inputArray as $string) {
+        if (strlen($string) == $tamMax) {
+            array_push($outputArray, $string);
+        }
+    }
+    return $outputArray;
 }
+
+$inputArray = ["a", "abc", "cbd", "zzzzzz", "a", "abcdef", "asasa", "aaaaaa"];
+
+var_dump(allLongestStrings($inputArray));

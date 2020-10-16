@@ -17,5 +17,20 @@
 
 function adjacentElementsProduct($inputArray)
 {
-    // CÓDIGO
+    $aux = [];
+
+
+    for ($i = 0; $i < count($inputArray) - 1; $i++) {
+
+
+        array_push($aux, $inputArray[$i] * $inputArray[$i + 1]);
+    }
+
+    // foreach ($inputArray as $value) {
+    //     array_push($aux, $value * next($inputArray));
+    // }
+
+    return max($aux);
 }
+
+echo "O maior produto é: " . adjacentElementsProduct([5, 6, -4, 2, 3, 2, -23]);

@@ -18,5 +18,26 @@
 
 function checkPalindrome($inputString)
 {
-    // CÓDIGO
+
+    for ($i = 0; $i < strlen($inputString); $i++) {
+
+        if ($inputString[$i] <> $inputString[strlen($inputString) - 1 - $i]) {
+            return false;
+        }
+        // if (substr($inputString, $i, 1) <> substr($inputString, -$i - 1, 1)) {
+        //     return false;
+        // }
+    }
+
+    return true;
+}
+
+$inputString = "zzzazzazz";
+
+if (checkPalindrome($inputString)) {
+
+    echo "A palavra {$inputString} é um palíndromo";
+} else {
+
+    echo "A palavra {$inputString} não é um palíndromo";
 }

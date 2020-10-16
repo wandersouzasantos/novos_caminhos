@@ -18,5 +18,24 @@
 
 function isLucky($n)
 {
-    // CÓDIGO
+    if (strlen($n) % 2 <> 0) {
+
+        echo "Número de bilhete inválido";
+        return false;
+    }
+
+    $n = strval($n);
+    $metade = strlen($n) / 2;
+
+    $n1 = str_split(substr($n, 0, $metade));
+    $n2 = str_split(substr($n, $metade, strlen($n)));
+
+    if (array_sum($n1) == array_sum($n2)) {
+        return true;
+    } else {
+
+        return false;
+    }
 }
+
+var_dump(isLucky(261534));

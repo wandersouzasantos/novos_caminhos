@@ -19,5 +19,30 @@
 
 function almostIncreasingSequence($sequence)
 {
-    // CÓDIGO
-}
+    $eh_sequencia = function ($sequence) {
+
+        for ($i = 0; $i < count($sequence) - 1; $i++) {
+            if ($sequence[$i + 1] <= $sequence[$i]) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    if ($eh_sequencia($sequence)) {
+        return true;
+    } else {
+        for ($i = 0; $i < count($sequence); $i++) {
+
+            $sequence_copy = $sequence;
+            array_splice($sequence_copy, $i, 1);
+
+            if ($eh_sequencia($sequence_copy)) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+
+var_dump(almostIncreasingSequence(array(3, 5, 67, 98, 3)));

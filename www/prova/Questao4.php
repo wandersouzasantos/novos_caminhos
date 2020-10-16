@@ -22,5 +22,19 @@
 
 function makeArrayConsecutive2($statues)
 {
-    // CÓDIGO
+
+    $needed = array();
+
+    for ($i = 0; $i < count($statues) - 1; $i++) {
+        sort($statues);
+        if ($statues[$i] + 1 <> $statues[$i + 1]) {
+            array_push($statues, $statues[$i] + 1);
+            array_push($needed, $statues[$i] + 1);
+        }
+    }
+    var_dump($needed);
+    return count($needed);
 }
+
+echo "Quantidade de estátuas necessárias: " .
+    makeArrayConsecutive2(array(6, 3));

@@ -19,5 +19,21 @@
 
 function reverseInParentheses($inputString)
 {
-    // CÓDIGO
+    do {
+
+        $inicio = strrpos($inputString, "(") + 1;
+        $fim = strrpos($inputString, ")");
+
+        $inputString = substr_replace(
+            $inputString,
+            strrev(substr($inputString, $inicio, $fim - $inicio)),
+            $inicio - 1,
+            $fim - $inicio + 2
+        );
+    } while (strrpos($inputString, "("));
+
+
+    return $inputString;
 }
+
+echo reverseInParentheses("foo(bar(baz))blim");
